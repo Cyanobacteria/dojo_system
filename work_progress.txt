@@ -56,4 +56,6 @@ ____________________
 
 5.Eloquent 可以操作的形式跟rails差在哪裡？
 
+6./config/app.php
 
+7./routes/web.php
