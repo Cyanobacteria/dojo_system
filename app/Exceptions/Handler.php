@@ -46,8 +46,52 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+     //$exception
+    public function render($request, Exception $e)
     {
-        return parent::render($request, $exception);
+       /*  if ($exception instanceof TokenMismatchException) {
+            throw $exception;
+         }
+         
+       //___________________
+        if ($this->isHttpException($e))
+        {       
+            if($e instanceof NotFoundHttpException)
+            {
+                return response()->view('front.missing', [], 404);
+            }
+                return $this->renderHttpException($e);
+        }
+        */
+         if ($this->isHttpException($e))
+        {
+            return $this->renderHttpException($e);
+        }
+
+
+        if (config('app.debug'))
+        {
+            return $this->renderExceptionWithWhoops($e);
+        }
+
+
+         return parent::render($request, $e);
     }
+
+    
+    protected function renderExceptionWithWhoops(Exception $e)
+    {
+        $whoops = new \Whoops\Run;
+        $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
+
+        return new \Illuminate\Http\Response(
+            $whoops->handleException($e),
+            $e->getStatusCode(),
+            $e->getHeaders()
+        );
+    }
+
+
+
+
 }
