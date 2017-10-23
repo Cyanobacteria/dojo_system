@@ -1,3 +1,32 @@
+指令收集：
+
+composer create-project laravel/laravel 名稱
+laravel new 名稱
+
+php artisan serve
+
+php artisan make:auth
+
+php artisan migrate
+
+php artisan make:model Name(大寫？)
+
+php artisan make:migration create_article_table(蛇底)
+
+php artisan make:seeder ArticleSeeder(駝峰)
+
+composer dump-auotload
+
+php artisan db:seed
+
+____________________
+
+
+
+
+
+
+
 對laravel 資料庫 進行migrate,接著試試看如下
 1.用artisan 撤銷migrate看看
 
@@ -12,3 +41,19 @@
 6.今天內生出小部落格？ 試試看
 
 7.更加熟練git
+
+2017.10.23
+
+1.laravel debug的方法怎樣做比較快？ 又是有哪些選擇?
+
+2.PHP 命名空間
+
+3.app目錄psr-4自動加載，啥意思？
+  database目錄採用psr-0 classmap?
+  composer dump-autoload
+
+4.PHP的OOP
+
+5.Eloquent 可以操作的形式跟rails差在哪裡？
+
+
