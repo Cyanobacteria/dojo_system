@@ -16,6 +16,13 @@ Route::get('/', function () {
 });
 */
 
+Route::get('test2', function (){
+     return view('test2');
+});
+
+
+
+
 
 Route::get('test', function () {
     return date("Y-m-d H:i:s");
